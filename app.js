@@ -18,10 +18,12 @@ shape.style.opacity = currentOpacity;
 colors.forEach(color => {
     color.addEventListener("click", function() {
         
-        // Get color from style property
+        colors.forEach(c => c.classList.remove("active"));
+        this.classList.add("active");
+
+        
         currentColor = getComputedStyle(this).getPropertyValue("--color").trim();
         
-        // Apply color to shape
         shape.style.fill = currentColor;
     });
 });
